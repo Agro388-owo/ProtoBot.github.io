@@ -9,17 +9,24 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
         }
 
         body {
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
             position: relative;
             background-color: #000;
             background-image: url('backround-2.png');
             background-size: cover;
-            background-position: center;
+            background-position: center bottom;
             background-repeat: no-repeat;
             font-family: Arial, Helvetica, sans-serif;
             display: flex;
@@ -29,21 +36,22 @@
 
         /* Top 404 Text Section */
         .text-container {
-            margin-top: 5vh;
+            margin-top: 40px;
             text-align: center;
             color: #000000;
             z-index: 10;
+            pointer-events: none;
         }
 
         .text-container h1 {
-            font-size: clamp(4rem, 12vw, 8rem);
+            font-size: clamp(3.5rem, 14vw, 7rem);
             font-weight: 400;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
         }
 
         .text-container p {
-            font-size: clamp(1.8rem, 5vw, 3.5rem);
+            font-size: clamp(1.5rem, 6vw, 3.2rem);
             font-weight: 400;
         }
 
@@ -51,28 +59,34 @@
         .puro-img {
             position: absolute;
             bottom: 0;
-            right: 2vw;
-            height: 45vh;
-            max-height: 450px;
+            right: 0;
+            width: 58vw;
+            max-width: 380px;
+            height: auto;
             object-fit: contain;
             z-index: 5;
             pointer-events: none;
+            display: block;
+            -webkit-user-drag: none;
         }
 
-        /* Bottom Left - Almost Transparent OC */
+        /* Bottom Left - Almost Transparent OC (3% Opacity) */
         .buff-oc {
             position: absolute;
             bottom: 0;
             left: 0;
-            height: 25vh;
-            max-height: 250px;
+            width: 32vw;
+            max-width: 200px;
+            height: auto;
             object-fit: contain;
-            opacity: 0.12; /* ~88% transparent */
+            opacity: 0.03;
             z-index: 4;
             pointer-events: none;
+            display: block;
+            -webkit-user-drag: none;
         }
 
-        /* Optional: Home Redirect Link on click anywhere */
+        /* Home Redirect Link on click anywhere */
         a.full-link {
             position: absolute;
             top: 0;
@@ -80,6 +94,7 @@
             width: 100%;
             height: 100%;
             z-index: 20;
+            outline: none;
         }
     </style>
 </head>
@@ -91,10 +106,10 @@
     </div>
 
     <!-- Bottom Left Faint OC -->
-    <img class="buff-oc" src="buff-oc-red.png" alt="OC silhouette">
+    <img class="buff-oc" src="buff-oc-red.png" alt="OC silhouette" draggable="false">
 
     <!-- Bottom Right Character -->
-    <img class="puro-img" src="Shocked_floof.webp" alt="Shocked Puro">
+    <img class="puro-img" src="Shocked_floof.webp" alt="Shocked Puro" draggable="false">
 
     <!-- Clicking anywhere returns to main page -->
     <a href="/" class="full-link" title="Return to home"></a>
